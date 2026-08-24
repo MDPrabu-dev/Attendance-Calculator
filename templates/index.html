@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Calculator</title>
+</head>
+
+<body>
+
+    <h1>Attendance Calculator</h1>
+
+    <form method="POST">
+
+        <label>Total Classes:</label>
+        <input type="number" name="total_classes">
+
+        <br><br>
+
+        <label>Classes Attended:</label>
+        <input type="number" name="attended_classes">
+
+        <br><br>
+
+        <button type="submit">Calculate</button>
+
+    </form>
+    {% if attendance is not none %}
+    <h2>Your Attendance: {{ attendance }}%</h2>
+{% endif %}
+
+</body>
+</html>
