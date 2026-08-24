@@ -21,3 +21,10 @@ Run:
 
 ```bash
 python3 attendance_calculator.py
+
+ATTENDANCE CALCULATOR
+
+Enter total classes: 50
+Enter classes attended: 42
+
+Your attendance is: 84.0 %
