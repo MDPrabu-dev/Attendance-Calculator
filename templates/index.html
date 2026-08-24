@@ -1,31 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Attendance Calculator</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-    <h1>Attendance Calculator</h1>
+    <main class="app">
 
-    <form method="POST">
+        <div class="card">
 
-        <label>Total Classes:</label>
-        <input type="number" name="total_classes">
+            <div class="header">
+                <h1>Attendance</h1>
+                <p>Know where you stand.</p>
+            </div>
 
-        <br><br>
+            <form method="POST">
 
-        <label>Classes Attended:</label>
-        <input type="number" name="attended_classes">
+                <div class="input-group">
+                    <label>Total Classes</label>
+                    <input
+                        type="number"
+                        name="total_classes"
+                        placeholder="e.g. 50"
+                        required
+                    >
+                </div>
 
-        <br><br>
+                <div class="input-group">
+                    <label>Classes Attended</label>
+                    <input
+                        type="number"
+                        name="attended_classes"
+                        placeholder="e.g. 42"
+                        required
+                    >
+                </div>
 
-        <button type="submit">Calculate</button>
+                <div class="input-group">
+                    <label>Required Attendance</label>
 
-    </form>
-    {% if attendance is not none %}
-    <h2>Your Attendance: {{ attendance }}%</h2>
-{% endif %}
+                    <div class="percentage-options">
+
+                        <label class="percentage-option">
+                            <input type="radio" name="required" value="70" required>
+                            <span>70%</span>
+                        </label>
+
+                        <label class="percentage-option">
+                            <input type="radio" name="required" value="75">
+                            <span>75%</span>
+                        </label>
+
+                        <label class="percentage-option">
+                            <input type="radio" name="required" value="80">
+                            <span>80%</span>
+                        </label>
+
+                        <label class="percentage-option">
+                            <input type="radio" name="required" value="85">
+                            <span>85%</span>
+                        </label>
+
+                    </div>
+                </div>
+
+                <button type="submit">
+                    Calculate
+                </button>
+
+            </form>
+
+            {% if attendance is not none %}
+
+            <div class="result">
+
+                <p class="result-label">YOUR ATTENDANCE</p>
+
+                <h2>{{ attendance }}%</h2>
+
+                <div class="progress-container">
+                    <div
+                        class="progress-bar"
+                        style="width: {{ attendance }}%;"
+                    ></div>
+                </div>
+
+                <p>Required: {{ required }}%</p>
+
+            </div>
+
+            {% endif %}
+
+            <div class="signature">
+                with love MDP
+            </div>
+
+        </div>
+
+    </main>
 
 </body>
+
 </html>

@@ -1,0 +1,299 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: -apple-system, BlinkMacSystemFont,
+                 "SF Pro Display", "SF Pro Text",
+                 "Helvetica Neue", Arial, sans-serif;
+
+    background: #f3f3f5;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #2f2f35;
+}
+
+.app {
+    width: 100%;
+    padding: 20px;
+}
+
+.card {
+    width: 100%;
+    max-width: 430px;
+
+    margin: auto;
+    padding: 32px;
+
+    background: white;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+
+    animation: cardAppear 0.6s ease;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    margin: 0;
+
+    font-size: 32px;
+    font-weight: 700;
+
+    color: #6b1f2a;
+}
+
+.header p {
+    margin-top: 8px;
+
+    color: #777780;
+
+    font-size: 15px;
+}
+
+.input-group {
+    margin-bottom: 22px;
+}
+
+.input-group > label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #55555d;
+}
+
+input[type="number"] {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid #d8d8de;
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+input[type="number"]:focus {
+    border-color: #6b1f2a;
+
+    box-shadow:
+        0 0 0 3px rgba(107, 31, 42, 0.1);
+}
+
+.percentage-options {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 8px;
+}
+
+.percentage-option {
+    cursor: pointer;
+}
+
+.percentage-option input {
+    display: none;
+}
+
+.percentage-option span {
+    display: block;
+
+    padding: 12px 5px;
+
+    text-align: center;
+
+    border: 1px solid #d8d8de;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    color: #55555d;
+
+    transition: 0.2s ease;
+}
+
+.percentage-option input:checked + span {
+    background: #6b1f2a;
+
+    border-color: #6b1f2a;
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+button {
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 5px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #6b1f2a;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+button:hover {
+    background: #571923;
+
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.result {
+    margin-top: 30px;
+
+    padding: 22px;
+
+    border-radius: 18px;
+
+    background: #f5f6f8;
+
+    text-align: center;
+
+    animation: resultAppear 0.5s ease;
+}
+
+.result-label {
+    margin: 0;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    color: #777780;
+}
+
+.result h2 {
+    margin: 8px 0 18px;
+
+    font-size: 42px;
+
+    color: #6b1f2a;
+}
+
+.progress-container {
+    width: 100%;
+
+    height: 10px;
+
+    background: #dedee3;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+
+    background: #315c91;
+
+    border-radius: 20px;
+
+    transition: width 1s ease;
+}
+
+.result > p:last-child {
+    margin-top: 12px;
+
+    font-size: 14px;
+
+    color: #66666e;
+}
+
+.signature {
+    margin-top: 28px;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    color: #9999a1;
+
+    letter-spacing: 0.5px;
+}
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes resultAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .app {
+        padding: 14px;
+    }
+
+    .card {
+        padding: 24px 20px;
+
+        border-radius: 20px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+}
