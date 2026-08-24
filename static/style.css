@@ -225,11 +225,25 @@ button:active {
 .progress-bar {
     height: 100%;
 
+    width: 0;
+
     background: #315c91;
 
     border-radius: 20px;
 
-    transition: width 1s ease;
+    animation: progressFill 1s ease forwards;
+}
+
+@keyframes progressFill {
+
+    from {
+        width: 0;
+    }
+
+    to {
+        width: var(--attendance);
+    }
+
 }
 
 .result > p:last-child {
@@ -296,4 +310,102 @@ button:active {
         font-size: 28px;
     }
 
+}
+.message {
+    margin-top: 20px;
+
+    text-align: center;
+
+    animation: messageAppear 0.6s ease;
+}
+
+.emoji {
+    font-size: 48px;
+
+    margin-bottom: 8px;
+
+    animation: emojiPop 0.7s ease;
+}
+
+.message p {
+    margin: 8px 0;
+
+    font-size: 14px;
+
+    color: #55555d;
+}
+
+.message strong {
+    color: #6b1f2a;
+
+    font-size: 17px;
+}
+
+@keyframes emojiPop {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.4) rotate(-10deg);
+    }
+
+    60% {
+        transform: scale(1.2) rotate(5deg);
+    }
+
+    80% {
+        transform: scale(0.95) rotate(-2deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+
+}
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+.error-message {
+    margin-top: 20px;
+
+    padding: 18px;
+
+    text-align: center;
+
+    border-radius: 16px;
+
+    background: #f3f3f5;
+
+    animation: messageAppear 0.5s ease;
+}
+
+.error-message .emoji {
+    font-size: 40px;
+
+    margin-bottom: 5px;
+}
+
+.error-message p {
+    margin: 6px 0;
+
+    font-size: 14px;
+
+    color: #55555d;
+}
+
+.error-message strong {
+    color: #6b1f2a;
+
+    font-size: 17px;
 }

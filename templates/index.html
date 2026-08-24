@@ -21,55 +21,91 @@
                 <p>Know where you stand.</p>
             </div>
 
+
+            <!-- CALCULATOR FORM -->
+
             <form method="POST">
 
                 <div class="input-group">
+
                     <label>Total Classes</label>
+
                     <input
                         type="number"
                         name="total_classes"
+                        min="1"
                         placeholder="e.g. 50"
                         required
                     >
+
                 </div>
 
+
                 <div class="input-group">
+
                     <label>Classes Attended</label>
+
                     <input
                         type="number"
                         name="attended_classes"
+                        min="0"
                         placeholder="e.g. 42"
                         required
                     >
+
                 </div>
 
+
                 <div class="input-group">
+
                     <label>Required Attendance</label>
 
                     <div class="percentage-options">
 
                         <label class="percentage-option">
-                            <input type="radio" name="required" value="70" required>
+                            <input
+                                type="radio"
+                                name="required"
+                                value="70"
+                                required
+                            >
                             <span>70%</span>
                         </label>
 
+
                         <label class="percentage-option">
-                            <input type="radio" name="required" value="75">
+                            <input
+                                type="radio"
+                                name="required"
+                                value="75"
+                            >
                             <span>75%</span>
                         </label>
 
+
                         <label class="percentage-option">
-                            <input type="radio" name="required" value="80">
+                            <input
+                                type="radio"
+                                name="required"
+                                value="80"
+                            >
                             <span>80%</span>
                         </label>
 
+
                         <label class="percentage-option">
-                            <input type="radio" name="required" value="85">
+                            <input
+                                type="radio"
+                                name="required"
+                                value="85"
+                            >
                             <span>85%</span>
                         </label>
 
                     </div>
+
                 </div>
+
 
                 <button type="submit">
                     Calculate
@@ -77,26 +113,121 @@
 
             </form>
 
-            {% if attendance is not none %}
 
-            <div class="result">
+            <!-- ERROR MESSAGE -->
 
-                <p class="result-label">YOUR ATTENDANCE</p>
+            {% if error %}
 
-                <h2>{{ attendance }}%</h2>
+            <div class="error-message">
 
-                <div class="progress-container">
-                    <div
-                        class="progress-bar"
-                        style="width: {{ attendance }}%;"
-                    ></div>
-                </div>
+                <div class="emoji">⚠️</div>
 
-                <p>Required: {{ required }}%</p>
+                <p>
+                    <strong>Oops!</strong>
+                </p>
+
+                <p>
+                    {{ error }}
+                </p>
 
             </div>
 
             {% endif %}
+
+
+            <!-- RESULT -->
+
+            {% if attendance is not none %}
+
+            <div class="result">
+
+                <p class="result-label">
+                    YOUR ATTENDANCE
+                </p>
+
+
+                <h2>
+                    {{ attendance }}%
+                </h2>
+
+
+                <div class="progress-container">
+
+                    <div
+                    class="progress-bar"
+                     style="--attendance: {{ attendance }}%;"
+                        ></div>
+                </div>
+
+
+                <p>
+                    Required: {{ required }}%
+                </p>
+
+
+                {% if attendance >= required %}
+
+                <!-- HAPPY RESULT -->
+
+                <div class="message">
+
+                    <div class="emoji">
+                        😎
+                    </div>
+
+                    <p>
+                        You're doing great!
+                    </p>
+
+                    <p>
+                        You can take
+                        <strong>{{ classes_can_miss }}</strong>
+                        more class{% if classes_can_miss != 1 %}es{% endif %}
+                        off!
+                    </p>
+
+                    <p>
+                        Hurrayyy 🎉
+                    </p>
+
+                </div>
+
+
+                {% else %}
+
+                <!-- BELOW TARGET RESULT -->
+
+                <div class="message">
+
+                    <div class="emoji">
+                        😭
+                    </div>
+
+                    <p>
+                        Ohhh!!
+                    </p>
+
+                    <p>
+                        You have to attend
+                        <strong>{{ classes_needed }}</strong>
+                        more class{% if classes_needed != 1 %}es{% endif %}
+                        to reach {{ required }}%.
+                    </p>
+
+                    <p>
+                        Oops! 😭
+                    </p>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+            {% endif %}
+
+
+            <!-- SIGNATURE -->
 
             <div class="signature">
                 with love MDP

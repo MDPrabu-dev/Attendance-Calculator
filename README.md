@@ -1,30 +1,24 @@
 # Attendance Calculator
 
-A simple Python-based attendance calculator.
-
-## Version
-
-v0.1
+A simple and responsive attendance calculator built with Python and Flask.
 
 ## Features
 
-- Calculate attendance percentage
-- Validate user input
-- Prevent invalid attendance values
-- Handle division-by-zero errors
+- Calculate current attendance
+- Select required attendance percentage
+- Shows classes you can miss
+- Shows classes needed to reach target
+- Input validation
+- Responsive design
+- Animated results
 
-## How to Run
+## Built With
 
-Make sure Python is installed.
+- Python
+- Flask
+- HTML
+- CSS
 
-Run:
+## Author
 
-```bash
-python3 attendance_calculator.py
-
-ATTENDANCE CALCULATOR
-
-Enter total classes: 50
-Enter classes attended: 42
-
-Your attendance is: 84.0 %
+with love MDP ❤️
